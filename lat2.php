@@ -19,5 +19,14 @@
     }
 
     echo hitungLuas("10", "20");
+    echo "<br>";
 
+
+    $names = ["Pask ", "Jids ", "Prabss ", "Jisuds ", "Ojadn "];
+
+    foreach ($names as $name) {
+        if (strlen($name) > 5) {
+            echo $name;
+        }
+    }
 ?>
