@@ -12,4 +12,12 @@
         }
     }
 
+    # Program 2 : Mengenal Function Dengan Membuat Function Untuk Menghitung Luas Persegi Panjang
+
+    function hitungLuas($p, $l) {
+        return $p * $l;
+    }
+
+    echo hitungLuas("10", "20");
+
 ?>
