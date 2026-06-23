@@ -58,6 +58,9 @@
     # Program 3 : Cek Kategori Umur Dengan Switch
     $umur = 10;
     switch (true) {
+        case ($umur < 0 || !is_int($umur)) :
+            echo "Masukkan angka yang logis <br>";
+            break;
         case ($umur >= 0 && $umur <= 12) :
             echo "Anak-Anak <br>";
             break;
@@ -69,9 +72,6 @@
             break;
         case ($umur >= 60) :
             echo "Lansia <br>";
-            break;
-        case ($umur < 0 || is_int($umur)) :
-            echo "Masukkan angka yang logis <br>";
             break;
     }
 ?>
