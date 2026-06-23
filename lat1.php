@@ -45,7 +45,7 @@
         echo "Hasil dari $angka1 * $angka2 adalah $hasil <br>";
     } elseif ($operator == "/") {
         if ($angka2 === 0) {
-            echo "Angka tidak logis!";
+            echo "Angka tidak logis! <br>";
         } else {
         $hasil = $angka1 / $angka2;
 
@@ -53,5 +53,25 @@
         }
     } else {
         echo "Operator tidak tersedia <br>";
+    }
+
+    # Program 3 : Cek Kategori Umur Dengan Switch
+    $umur = 10;
+    switch (true) {
+        case ($umur >= 0 && $umur <= 12) :
+            echo "Anak-Anak <br>";
+            break;
+        case ($umur >= 13 && $umur <= 17) :
+            echo "Remaja <br>";
+            break;
+        case ($umur >= 18 && $umur <= 59) :
+            echo "Dewasa <br>";
+            break;
+        case ($umur >= 60) :
+            echo "Lansia <br>";
+            break;
+        case ($umur < 0 || is_int($umur)) :
+            echo "Masukkan angka yang logis <br>";
+            break;
     }
 ?>
