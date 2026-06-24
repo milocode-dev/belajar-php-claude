@@ -32,4 +32,27 @@
     $newMobil->jalan();
     $newMobil->rem();
 
+    # Tes Mandiri
+
+    class Buku {
+        public $judul;
+        public $penulis;
+        public $harga;
+        public $terbit;
+
+        function __construct($judul, $penulis, $harga, $terbit) {
+            $this->judul = $judul;
+            $this->penulis = $penulis;
+            $this->harga = $harga;
+            $this->terbit = $terbit;
+        }
+
+        function tampilkanInfo() {
+            echo "Buku dengan judul $this->judul yang merupakan karya dari $this->penulis dengan tahun terbit $this->terbit dijual ke masyarakat umum dengan $this->harga <br>";
+        }
+    }
+
+    $newBook = new Buku("Giyatris", "Jiojak", "40000", "2025");
+    $newBook->tampilkanInfo();
+
 ?>
