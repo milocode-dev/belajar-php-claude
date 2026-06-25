@@ -8,20 +8,16 @@
 
     function hitungDiskon($harga, $statusMember) {
         if ($statusMember === "gold") {
-            $diskon = $harga * 0.2;
-            $hargaSetelahDiskon = $harga - $diskon;
-            return $hargaSetelahDiskon;
+            $persentase = 0.2;
         } elseif ($statusMember === "silver") {
-            $diskon = $harga * 0.1;
-            $hargaSetelahDiskon = $harga - $diskon;
-            return $hargaSetelahDiskon;
+            $persentase = 0.1;
         } elseif ($statusMember === "reguler") {
-            $diskon = $harga * 0;
-            $hargaSetelahDiskon = $harga - $diskon;
-            return $hargaSetelahDiskon;
+            $persentase = 0;
         } else {
             return "Status tidak valid";
         }
+
+        return $harga - ($harga * $persentase);
     }
 
     echo "Anda mendapatkan diskon 20% total belanjaan setelah diskon adalah " . hitungDiskon(200000, "gold") . "<br>";
