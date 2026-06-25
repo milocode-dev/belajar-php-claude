@@ -36,4 +36,48 @@
             echo $item["nama"] . " - Rp" . $item["harga"] . "<br>";
         }
     }
+
+
+    # Bagian 3 : OOP
+    # Tes pemahaman class
+
+    class RekeningBank {
+        public $namaPemilik;
+        public $saldo;
+
+        public function __construct($namaPemilik, $saldo) {
+            $this->namaPemilik = $namaPemilik;
+            $this->saldo = $saldo;
+        }
+
+        public function setor($jumlah) {
+            $this->saldo += $jumlah;
+
+            echo "$this->namaPemilik Saldo telah ditambahkan senilai : $jumlah <br>";
+        }
+
+        public function tarik($jumlah) {
+            if ($this->saldo < $jumlah) {
+                echo "$this->namaPemilik Saldo tidak mencukupi, total saldo anda saat ini adalah $this->saldo <br>";
+            } else {
+                $this->saldo -= $jumlah;
+
+                echo "$this->namaPemilik Saldo anda telah ditarik senilai $jumlah <br>";
+            }
+        }
+
+        public function cekSaldo() {
+            echo "$this->namaPemilik    Saldo anda saat ini bernilai : $this->saldo <br>";
+        }
+    }
+
+    $newUser = new RekeningBank("Riya", 300000);
+    $newUser->cekSaldo();
+    $newUser->setor(200000);
+    $newUser->cekSaldo();
+    $newUser->tarik(450000);
+    $newUser->cekSaldo();
+    $newUser->tarik(100000);
+    $newUser->cekSaldo();
+
 ?>
