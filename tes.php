@@ -8,17 +8,23 @@
 
     function hitungDiskon($harga, $statusMember) {
         if ($statusMember === "gold") {
-            return $harga * 0.2;
+            $diskon = $harga * 0.2;
+            $hargaSetelahDiskon = $harga - $diskon;
+            return $hargaSetelahDiskon;
         } elseif ($statusMember === "silver") {
-            return $harga * 0.1;
+            $diskon = $harga * 0.1;
+            $hargaSetelahDiskon = $harga - $diskon;
+            return $hargaSetelahDiskon;
         } elseif ($statusMember === "reguler") {
-            return $harga * 0;
+            $diskon = $harga * 0;
+            $hargaSetelahDiskon = $harga - $diskon;
+            return $hargaSetelahDiskon;
         } else {
             return "Status tidak valid";
         }
     }
 
-    echo "Anda mendapatkan diskon sebesar", " " , hitungDiskon("200000", "silver"), " ", "rupiah <br>";
+    echo "Anda mendapatkan diskon 20% total belanjaan setelah diskon adalah " . hitungDiskon(200000, "gold") . "<br>";
 
     # Bagian 2 : Loop & Array
     # Membuat array 5 produk dan menampilkan produk yang harganya di atas 50000
@@ -80,4 +86,54 @@
     $newUser->tarik(100000);
     $newUser->cekSaldo();
 
+
+    abstract class Kendaraan {
+        public $merk;
+
+        public function __construct($merk) {
+            $this->merk = $merk;
+        }
+
+        public function jalan() {
+            echo "Mobil $this->merk sedang berjalan. <br>";
+        }
+
+        abstract public function jenisKendaraan();
+    }
+
+    interface BisaBayar {
+        public function bayar($jumlah);
+    }
+
+    class Mobil extends Kendaraan implements BisaBayar {
+        public $jenis;
+
+        public function __construct($merk, $jenis) {
+            parent::__construct($merk);
+            $this->jenis = $jenis;
+        }
+
+        public function jalan() {
+            parent::jalan();
+            echo "Jenis Kendaraan : $this->jenis <br>";
+        }
+
+        public function jenisKendaraan() {
+            if ($this->jenis === "motor") {
+                echo "$this->jenis adalah kendaraan roda 2";
+            } else {
+                echo "$this->jenis adalah kendaraan roda lebih dari 2";
+            }
+        }
+
+        public function bayar($jumlah) {
+            echo "$this->merk membayar sejumlah $jumlah";
+        }
+    }
+
+
+    $mobil = new Mobil("Toyota", "mobil");
+    $mobil->jalan();
+    $mobil->jenisKendaraan();
+    $mobil->bayar(2000);
 ?>
